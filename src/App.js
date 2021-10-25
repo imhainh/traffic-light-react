@@ -1,6 +1,8 @@
 import './App.css';
-import TrafficLight from './components/TrafficLight.js';
 import React from 'react';
+
+import TrafficLight from './components/TrafficLight.js';
+import Counter from './components/Counter.js';
 import { RED, GREEN, ORANGE } from './AppConstants.js'
 
 class App extends React.Component {
@@ -34,6 +36,17 @@ class App extends React.Component {
     return (
       <div className="App">
         <TrafficLight currentColor={this.state.currentColor} />
+        <Counter>
+          {
+            function ({ counter, hour, minute }) {
+              return (
+                <div>
+                  <h1>{hour}:{minute}:{counter}</h1>
+                </div>
+              )
+            }
+          }
+        </Counter>
       </div>
     );
   }
